@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DailyTaskTimeTracker.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}"
+    Visual="Material">
+
+    <Frame
+        Margin="20,0,20,0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="CenterAndExpand">
+        <StackLayout>
+            <Label Text="Username" />
+            <Entry Placeholder="Enter your username" Text="{Binding Username, Mode=TwoWay}" />
+
+            <Label Text="Password" />
+            <Entry
+                IsPassword="True"
+                Placeholder="Enter your password"
+                Text="{Binding Password, Mode=TwoWay}" />
+
+            <Button Command="{Binding LoginCommand}" Text="Login" />
+        </StackLayout>
+    </Frame>
+
+</ContentPage>

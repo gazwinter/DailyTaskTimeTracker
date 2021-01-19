@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="DailyTaskTimeTracker.Views.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:fonts="clr-namespace:DailyTaskTimeTracker.Constants"
+    xmlns:pages="clr-namespace:DailyTaskTimeTracker.Views"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Dashboard"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <TabbedPage.Children>
+        <NavigationPage Title="Timer">
+            <x:Arguments>
+                <pages:TimerPage />
+            </x:Arguments>
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="FA#Solid" Glyph="{x:Static fonts:IconFontSolid.Stopwatch20}" />
+            </NavigationPage.IconImageSource>
+
+        </NavigationPage>
+
+        <NavigationPage Title="History">
+            <x:Arguments>
+                <pages:HistoryPage />
+            </x:Arguments>
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="FA#Solid" Glyph="{x:Static fonts:IconFontSolid.List}" />
+            </NavigationPage.IconImageSource>
+        </NavigationPage>
+
+        <NavigationPage Title="Profile">
+            <x:Arguments>
+                <pages:ProfilePage />
+            </x:Arguments>
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="FA#Solid" Glyph="{x:Static fonts:IconFontSolid.User}" />
+            </NavigationPage.IconImageSource>
+        </NavigationPage>
+
+        <NavigationPage Title="Settings">
+            <x:Arguments>
+                <pages:SettingsPage />
+            </x:Arguments>
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="FA#Solid" Glyph="{x:Static fonts:IconFontSolid.Cogs}" />
+            </NavigationPage.IconImageSource>
+        </NavigationPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>
