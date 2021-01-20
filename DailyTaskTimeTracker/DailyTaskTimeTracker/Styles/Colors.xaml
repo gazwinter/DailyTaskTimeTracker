@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="DailyTaskTimeTracker.Styles.Colors"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--  GLOBAL COLORS  -->
+    <Color x:Key="BackgroundColor">#efefef</Color>
+
+    <!--  LOGIN PAGE  -->
+    <Color x:Key="LoginLabelTextColor">#ffffff</Color>
+    <Color x:Key="DarkGradientColor">#223673</Color>
+    <Color x:Key="LightGradientColor">#6ddcf0</Color>
+
+</ResourceDictionary>

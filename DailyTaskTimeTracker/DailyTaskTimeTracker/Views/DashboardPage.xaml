@@ -9,7 +9,8 @@
     xmlns:prism="http://prismlibrary.com"
     Title="Dashboard"
     android:TabbedPage.ToolbarPlacement="Bottom"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
     <TabbedPage.Children>
         <NavigationPage Title="Timer">
             <x:Arguments>

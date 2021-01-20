@@ -3,25 +3,42 @@
     x:Class="DailyTaskTimeTracker.Views.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="{Binding Title}"
+    NavigationPage.HasNavigationBar="false"
     Visual="Material">
 
-    <Frame
-        Margin="20,0,20,0"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="CenterAndExpand">
-        <StackLayout>
-            <Label Text="Username" />
-            <Entry Placeholder="Enter your username" Text="{Binding Username, Mode=TwoWay}" />
+    <StackLayout
+        Margin="0,20,0,0"
+        Orientation="Vertical"
+        Spacing="-100">
 
-            <Label Text="Password" />
-            <Entry
-                IsPassword="True"
-                Placeholder="Enter your password"
-                Text="{Binding Password, Mode=TwoWay}" />
+        <Image Source="http://clipart-library.com/images/pi78o7B5T.png" />
 
-            <Button Command="{Binding LoginCommand}" Text="Login" />
-        </StackLayout>
-    </Frame>
 
+        <Frame
+            Margin="20,0,20,0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                    <GradientStop Offset="0.1" Color="{StaticResource DarkGradientColor}" />
+                    <GradientStop Offset="1.0" Color="{StaticResource LightGradientColor}" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <StackLayout>
+                <Label Style="{StaticResource LoginHeaderLabel}" Text="Username" />
+                <Entry Placeholder="Enter your username" Text="{Binding Username, Mode=TwoWay}" />
+
+                <Label Style="{StaticResource LoginHeaderLabel}" Text="Password" />
+                <Entry
+                    IsPassword="True"
+                    Placeholder="Enter your password"
+                    Text="{Binding Password, Mode=TwoWay}" />
+
+                <Button
+                    Command="{Binding LoginCommand}"
+                    Style="{StaticResource LoginButton}"
+                    Text="Login" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
 </ContentPage>
