@@ -28,5 +28,6 @@ jobs:
     - name: Android
       run: |        
         nuget restore
-        cd ../DailyTaskTimeTracker.Android
+        cd ..
+        cd DailyTaskTimeTracker.Android
         msbuild DailyTaskTimeTracker.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
