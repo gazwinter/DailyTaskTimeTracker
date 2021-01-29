@@ -1,4 +1,5 @@
-﻿using DailyTaskTimeTracker.Interfaces;
+﻿using DailyTaskTimeTracker.Data.Interfaces;
+using DailyTaskTimeTracker.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -43,8 +44,8 @@ namespace DailyTaskTimeTracker.ViewModels
 
        
 
-        public LoginPageViewModel(INavigationService navigationService, IAccountService accountService)
-            : base(navigationService, accountService)
+        public LoginPageViewModel(INavigationService navigationService, IAccountService accountService, IDailyTaskTimeTrackerRepository dailyTaskTimeTrackerRepository)
+            : base(navigationService, accountService, dailyTaskTimeTrackerRepository)
         {            
 
             Title = "Login";            

@@ -1,4 +1,5 @@
-﻿using DailyTaskTimeTracker.Interfaces;
+﻿using DailyTaskTimeTracker.Data.Interfaces;
+using DailyTaskTimeTracker.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -10,7 +11,7 @@ namespace DailyTaskTimeTracker.ViewModels
 {
     public class HistoryPageViewModel : ViewModelBase
     {
-        public HistoryPageViewModel(INavigationService navigationService, IAccountService accountService) : base(navigationService, accountService)
+        public HistoryPageViewModel(INavigationService navigationService, IAccountService accountService, IDailyTaskTimeTrackerRepository dailyTaskTimeTrackerRepository) : base(navigationService, accountService, dailyTaskTimeTrackerRepository)
         {
             Title = "History";
         }

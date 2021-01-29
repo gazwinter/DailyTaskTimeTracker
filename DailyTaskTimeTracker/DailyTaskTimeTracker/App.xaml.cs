@@ -1,3 +1,5 @@
+using DailyTaskTimeTracker.Data;
+using DailyTaskTimeTracker.Data.Interfaces;
 using DailyTaskTimeTracker.Interfaces;
 using DailyTaskTimeTracker.Services;
 using DailyTaskTimeTracker.ViewModels;
@@ -31,6 +33,8 @@ namespace DailyTaskTimeTracker
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.RegisterSingleton<IAccountService, AccountService>();
+            containerRegistry.RegisterSingleton<IDailyTaskTimeTrackerContext, DailyTaskTimeTrackerContext>();
+            containerRegistry.RegisterSingleton<IDailyTaskTimeTrackerRepository, DailyTaskTimeTrackerRepository>();            
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();

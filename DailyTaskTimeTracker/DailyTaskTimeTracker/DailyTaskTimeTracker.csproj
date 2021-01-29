@@ -59,4 +59,8 @@
     <Folder Include="Constants\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DailyTaskTimeTracker.Data\DailyTaskTimeTracker.Data.csproj" />
+  </ItemGroup>
+
 </Project>
