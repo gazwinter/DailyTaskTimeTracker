@@ -25,6 +25,7 @@ namespace DailyTaskTimeTracker.Tests
         [TestCase("", "")]
         [TestCase("a", "")]
         [TestCase("", "a")]
+        [Category("Login Tests")]
         public void Login_EmptyValues_ReturnFalse(string username, string password)
         {
             var result = _accountService.LoginUser(username, password).Result;
@@ -37,10 +38,10 @@ namespace DailyTaskTimeTracker.Tests
         [TestCase("", "a", "", "")]
         [TestCase("", "", "a", "")]
         [TestCase("", "", "", "a")]
-
+        [Category("Signup Tests")]
         public void SignUp_EmptyValues_ReturnFalse(string firstname, string surname, string email, string password)
         {
-            var result = _accountService.SignUp("", "", "", "").Result;
+            var result = _accountService.SignUp(firstname, surname, email, password).Result;
             Assert.AreEqual(false, result);
         }
 

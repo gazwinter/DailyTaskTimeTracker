@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popup:PopupPage
+    x:Class="DailyTaskTimeTracker.Views.BasicPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:DailyTaskTimeTracker.Converters"
+    xmlns:enums="clr-namespace:DailyTaskTimeTracker.Enums"
+    xmlns:fonts="clr-namespace:DailyTaskTimeTracker.Constants"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:prism="http://prismlibrary.com"
+    Padding="50"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="#80000000"
+    Opacity="0.8">
+    <popup:PopupPage.Resources>
+        <converters:PopupHeaderConverter x:Key="PopupHeaderConverter" />
+        <converters:PopupImageConverter x:Key="PopupImageConverter" />
+    </popup:PopupPage.Resources>
+    <StackLayout
+        BackgroundColor="White"
+        HeightRequest="400"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
+
+        <!--  HEADER  -->
+        <Frame
+            BackgroundColor="{Binding PopUpType, Converter={x:StaticResource PopupHeaderConverter}}"
+            HeightRequest="150"
+            WidthRequest="500">
+            <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Image.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PopUpType}"
+                        TargetType="Image"
+                        Value="{x:Static enums:PopupType.Error}">
+                        <Setter Property="Source">
+                            <Setter.Value>
+                                <FontImageSource
+                                    FontFamily="FA#Regular"
+                                    Glyph="{x:Static fonts:IconFontSolid.TimesCircle}"
+                                    Size="Header"
+                                    Color="White" />
+                            </Setter.Value>
+                        </Setter>
+
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding PopUpType}"
+                        TargetType="Image"
+                        Value="{x:Static enums:PopupType.Info}">
+                        <Setter Property="Source">
+                            <Setter.Value>
+                                <FontImageSource
+                                    FontFamily="FA#Solid"
+                                    Glyph="{x:Static fonts:IconFontSolid.InfoCircle}"
+                                    Size="Header"
+                                    Color="White" />
+                            </Setter.Value>
+                        </Setter>
+
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding PopUpType}"
+                        TargetType="Image"
+                        Value="{x:Static enums:PopupType.Warning}">
+                        <Setter Property="Source">
+                            <Setter.Value>
+                                <FontImageSource
+                                    FontFamily="FA#Solid"
+                                    Glyph="{x:Static fonts:IconFontSolid.ExclamationTriangle}"
+                                    Size="Header"
+                                    Color="White" />
+                            </Setter.Value>
+                        </Setter>
+
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding PopUpType}"
+                        TargetType="Image"
+                        Value="{x:Static enums:PopupType.Success}">
+                        <Setter Property="Source">
+                            <Setter.Value>
+                                <FontImageSource
+                                    FontFamily="FA#Solid"
+                                    Glyph="{x:Static fonts:IconFontSolid.CheckCircle}"
+                                    Size="Header"
+                                    Color="White" />
+                            </Setter.Value>
+                        </Setter>
+
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+        </Frame>
+        <!--  MESSAGE  -->
+
+        <StackLayout
+            Margin="20,0"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <Label
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Title}"
+                VerticalTextAlignment="Center" />
+            <Label
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Message}"
+                VerticalTextAlignment="Center" />
+        </StackLayout>
+
+
+    </StackLayout>
+</popup:PopupPage>

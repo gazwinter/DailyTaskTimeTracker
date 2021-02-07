@@ -120,6 +120,10 @@
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DailyTaskTimeTracker.Data\DailyTaskTimeTracker.Data.csproj">
+      <Project>{3246c05b-242d-4573-8ae7-697c47d32f64}</Project>
+      <Name>DailyTaskTimeTracker.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DailyTaskTimeTracker\DailyTaskTimeTracker.csproj">
       <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
       <Name>DailyTaskTimeTracker</Name>

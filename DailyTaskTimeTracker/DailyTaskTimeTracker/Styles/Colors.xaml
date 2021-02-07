@@ -12,4 +12,6 @@
     <Color x:Key="DarkGradientColor">#223673</Color>
     <Color x:Key="LightGradientColor">#6ddcf0</Color>
 
+    <Color x:Key="HyperLinkButtonTextColor">#223673</Color>
+
 </ResourceDictionary>

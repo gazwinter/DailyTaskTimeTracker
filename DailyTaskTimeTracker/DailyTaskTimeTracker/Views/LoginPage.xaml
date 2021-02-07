@@ -9,10 +9,9 @@
     <StackLayout
         Margin="0,20,0,0"
         Orientation="Vertical"
-        Spacing="-100">
+        VerticalOptions="CenterAndExpand">
 
         <Image Source="http://clipart-library.com/images/pi78o7B5T.png" />
-
 
         <Frame
             Margin="20,0,20,0"
@@ -36,9 +35,18 @@
 
                 <Button
                     Command="{Binding LoginCommand}"
-                    Style="{StaticResource LoginButton}"
+                    Style="{StaticResource ButtonStyle}"
                     Text="Login" />
+
+
             </StackLayout>
         </Frame>
+
+        <Label Style="{StaticResource HyperLinkButton}" Text="Create Account">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CreateAccountCmd}" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+        </Label>
+
     </StackLayout>
 </ContentPage>

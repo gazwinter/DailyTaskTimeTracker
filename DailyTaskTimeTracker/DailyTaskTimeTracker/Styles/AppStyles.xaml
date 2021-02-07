@@ -10,11 +10,18 @@
     <!--  LOGIN PAGE STYLES  -->
     <Style x:Key="LoginHeaderLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource LoginLabelTextColor}" />
-        <!--<Setter Property="FontSize" Value="Header" />-->
     </Style>
 
-    <Style x:Key="LoginButton" TargetType="Button">
+    <!--  BUTTON STYLES  -->
+    <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource DarkGradientColor}" />
+    </Style>
+
+    <Style x:Key="HyperLinkButton" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{StaticResource HyperLinkButtonTextColor}" />
+        <Setter Property="FontSize" Value="Medium" />
     </Style>
 
 </ResourceDictionary>

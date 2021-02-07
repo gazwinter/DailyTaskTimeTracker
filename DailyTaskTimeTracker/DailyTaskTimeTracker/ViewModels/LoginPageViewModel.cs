@@ -19,6 +19,7 @@ namespace DailyTaskTimeTracker.ViewModels
         private string _username;
         private string _password;
         private ICommand _loginCommand;
+        private ICommand _createAccountCmd;
         
         #endregion
 
@@ -40,9 +41,15 @@ namespace DailyTaskTimeTracker.ViewModels
             get => _loginCommand;
             set { SetProperty(ref _loginCommand, value); }
         }
+
+        public ICommand CreateAccountCmd
+        {
+            get => _createAccountCmd;
+            set { SetProperty(ref _createAccountCmd, value); }
+        }
         #endregion
 
-       
+
 
         public LoginPageViewModel(INavigationService navigationService, IAccountService accountService, IDailyTaskTimeTrackerRepository dailyTaskTimeTrackerRepository)
             : base(navigationService, accountService, dailyTaskTimeTrackerRepository)
@@ -50,14 +57,20 @@ namespace DailyTaskTimeTracker.ViewModels
 
             Title = "Login";            
             LoginCommand = new Command(async () => await AttemptLogin());
+            CreateAccountCmd = new Command(async () => await GoToCreateAccount());
             
+        }
+
+        private async Task GoToCreateAccount()
+        {
+            await NavigationService.NavigateAsync("CreateAccountPage");
         }
 
         private async Task AttemptLogin()
         {
             if(await AccountService.LoginUser(Username, Password))
-            {
-                await NavigationService.NavigateAsync("/DashboardPage");
+            {                
+                await NavigationService.NavigateAsync("/DashboardPage");                
             }
         }
     }

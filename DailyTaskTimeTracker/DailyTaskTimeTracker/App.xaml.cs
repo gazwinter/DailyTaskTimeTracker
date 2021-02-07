@@ -6,6 +6,7 @@ using DailyTaskTimeTracker.ViewModels;
 using DailyTaskTimeTracker.Views;
 using Prism;
 using Prism.Ioc;
+using Prism.Plugin.Popups;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
@@ -31,10 +32,14 @@ namespace DailyTaskTimeTracker
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+
+            containerRegistry.RegisterPopupNavigationService();
+
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.RegisterSingleton<IAccountService, AccountService>();
             containerRegistry.RegisterSingleton<IDailyTaskTimeTrackerContext, DailyTaskTimeTrackerContext>();
-            containerRegistry.RegisterSingleton<IDailyTaskTimeTrackerRepository, DailyTaskTimeTrackerRepository>();            
+            containerRegistry.RegisterSingleton<IDailyTaskTimeTrackerRepository, DailyTaskTimeTrackerRepository>();
+            
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
@@ -43,6 +48,9 @@ namespace DailyTaskTimeTracker
             containerRegistry.RegisterForNavigation<HistoryPage, HistoryPageViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
             containerRegistry.RegisterForNavigation<ProfilePage, ProfilePageViewModel>();
+            containerRegistry.RegisterForNavigation<CreateAccountPage, CreateAccountPageViewModel>();
+            containerRegistry.RegisterForNavigation<BasicPopupPage, BasicPopupPageViewModel>();
+
         }
     }
 }
