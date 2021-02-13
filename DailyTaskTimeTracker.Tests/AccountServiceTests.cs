@@ -3,6 +3,12 @@ using DailyTaskTimeTracker.Services;
 using DailyTaskTimeTracker.Data;
 using NUnit.Framework;
 using Moq;
+using DailyTaskTimeTracker.Data.Interfaces;
+using DailyTaskTimeTracker.Data.Entities;
+using System;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DailyTaskTimeTracker.Tests
 {
@@ -10,12 +16,12 @@ namespace DailyTaskTimeTracker.Tests
     {
         private IAccountService _accountService;
         private Mock<DailyTaskTimeTrackerRepository> _mockRepo;
-        private Mock<DailyTaskTimeTrackerContext> _context;
+        private Mock<DailyTaskTimeTrackerTestContext> _context;
 
         [SetUp]
         public void Setup()
         {
-            _context = new Mock<DailyTaskTimeTrackerContext>();
+            _context = new Mock<DailyTaskTimeTrackerTestContext>();
             _mockRepo = new Mock<DailyTaskTimeTrackerRepository>(_context.Object);
             
             _accountService = new AccountService(_mockRepo.Object);
@@ -31,6 +37,30 @@ namespace DailyTaskTimeTracker.Tests
             var result = _accountService.LoginUser(username, password).Result;
             Assert.AreEqual(false, result);
         }
+
+        //[Test]
+        //[TestCase("admin@admin.com", "admin")]
+        //[Category("Login Tests")]
+        //public void Login_ValidUsernameAndPassword_ReturnsTrue(string username, string password)
+        //{
+        //    _mockRepo.Setup(x => x.Where<UserProfile>(It.IsAny<Expression<Func<UserProfile, bool>>>()))
+        //        .Returns(new List<UserProfile> 
+        //        { 
+        //            new UserProfile
+        //            {
+        //                Archived = false,
+        //                Email = "admin@admin.com",
+        //                Firstname = "Admin",
+        //                Id = 1,
+        //                Surname = "Admin",
+        //                Hash = "",
+        //                Salt = "",
+        //            }
+        //        }.AsQueryable());
+
+        //    var result = _accountService.LoginUser(username, password).Result;
+        //    Assert.AreEqual(true, result);
+        //}
 
         [Test]
         [TestCase("", "", "", "")]

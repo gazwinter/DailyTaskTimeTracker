@@ -1,5 +1,7 @@
-﻿using DailyTaskTimeTracker.Data.Interfaces;
+﻿using DailyTaskTimeTracker.Data.Entities;
+using DailyTaskTimeTracker.Data.Interfaces;
 using DailyTaskTimeTracker.Enums;
+using DailyTaskTimeTracker.Helpers;
 using DailyTaskTimeTracker.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -79,22 +81,13 @@ namespace DailyTaskTimeTracker.ViewModels
 
         private async Task CreateUserAccount()
         {
-            if(!string.IsNullOrWhiteSpace(Firstname) && !string.IsNullOrWhiteSpace(Surname) && !string.IsNullOrWhiteSpace(Email) && !string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(ConfirmPassword))
+            if(await AccountService.SignUp(Firstname, Surname, Email, Password))
             {
-                //Try and Create a user
-                //If succesful Login and redirect
                 await NavigationService.NavigateAsync("/DashboardPage");
-            }
+            }            
             else
             {
-                var navigationParameters = new NavigationParameters
-                {
-
-                    { "Title", "Error" },
-                    { "Message", "Please make sure that you filled in all of the fields" },
-                    { "Type", PopupType.Error }
-                };
-                await NavigationService.NavigateAsync("BasicPopupPage", navigationParameters);
+                await DisplayPopup("Error", "Please make sure that you filled in all of the fields", PopupType.Error);
             }
 
         }

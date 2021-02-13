@@ -1,24 +1,25 @@
 ﻿using DailyTaskTimeTracker.Data.Entities;
+using DailyTaskTimeTracker.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
-using Xamarin.Forms;
+using System.Collections.Generic;
 using System.IO;
-using DailyTaskTimeTracker.Data.Interfaces;
+using System.Text;
 
-namespace DailyTaskTimeTracker.Data
+namespace DailyTaskTimeTracker.Tests
 {
-    public class DailyTaskTimeTrackerContext : DbContext, IDailyTaskTimeTrackerContext
+    public class DailyTaskTimeTrackerTestContext : DbContext, IDailyTaskTimeTrackerContext
     {
         private const string databaseName = "DailyTaskTimeTracker.db";
-        public DailyTaskTimeTrackerContext()
+        public DailyTaskTimeTrackerTestContext()
         {
-            Database.Migrate();
+            //Database.Migrate();
         }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            String databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), databaseName);         
+            String databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), databaseName);
             optionsBuilder.UseSqlite($"Filename={databasePath}");
         }
 

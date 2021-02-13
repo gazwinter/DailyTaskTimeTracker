@@ -1,4 +1,5 @@
 ﻿using DailyTaskTimeTracker.Data.Interfaces;
+using DailyTaskTimeTracker.Enums;
 using DailyTaskTimeTracker.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -6,6 +7,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DailyTaskTimeTracker.ViewModels
 {
@@ -48,6 +50,19 @@ namespace DailyTaskTimeTracker.ViewModels
         public virtual void Destroy()
         {
 
+        }
+
+        public async Task DisplayPopup(string title, string message, PopupType type)
+        {
+            var popupNavigationParameters = new NavigationParameters
+            {
+
+                { "Title", title },
+                { "Message", message },
+                { "Type", type }
+            };
+
+            await NavigationService.NavigateAsync("BasicPopupPage", popupNavigationParameters);
         }
     }
 }

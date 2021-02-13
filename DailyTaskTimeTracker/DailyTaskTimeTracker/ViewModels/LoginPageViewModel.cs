@@ -1,4 +1,5 @@
 ﻿using DailyTaskTimeTracker.Data.Interfaces;
+using DailyTaskTimeTracker.Enums;
 using DailyTaskTimeTracker.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -71,6 +72,10 @@ namespace DailyTaskTimeTracker.ViewModels
             if(await AccountService.LoginUser(Username, Password))
             {                
                 await NavigationService.NavigateAsync("/DashboardPage");                
+            }
+            else
+            {
+                await DisplayPopup("Error", "Invalid username or password", PopupType.Error);
             }
         }
     }

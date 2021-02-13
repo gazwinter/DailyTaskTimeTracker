@@ -101,7 +101,7 @@
             <Label
                 FontSize="Medium"
                 HorizontalTextAlignment="Center"
-                Text="{Binding Title}"
+                Text="{Binding PopupTitle}"
                 VerticalTextAlignment="Center" />
             <Label
                 FontSize="Medium"

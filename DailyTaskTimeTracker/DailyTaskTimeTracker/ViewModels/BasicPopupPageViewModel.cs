@@ -19,12 +19,12 @@ namespace DailyTaskTimeTracker.ViewModels
             NavigateBackCommand = new DelegateCommand(OnNavigateBackCommandExecuted);
         }
 
-        private string _title;
+        private string _popupTitle;
 
-        public string Title
+        public string PopupTitle
         {
-            get => _title;
-            set { SetProperty(ref _title, value); }
+            get => _popupTitle;
+            set { SetProperty(ref _popupTitle, value); }
         }
 
         private string _message;
@@ -58,6 +58,7 @@ namespace DailyTaskTimeTracker.ViewModels
         {
             System.Diagnostics.Debug.WriteLine($"{GetType().Name} Navigated To");
 
+            var title = parameters.GetValue<string>("Title");
             var message = parameters.GetValue<string>("Message");
 
             //get a collection of typed parameters
@@ -72,6 +73,7 @@ namespace DailyTaskTimeTracker.ViewModels
                 Message = "Something went wrong!";
             }
 
+            PopupTitle = title;
             PopUpType = type;
         }
 
